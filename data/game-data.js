@@ -558,7 +558,7 @@ globalThis.UNO_DATA = {
       "+4"
     ]
   ],
-    "paytable": {
+  "paytable": {
     "0": 0,
     "1": 0,
     "2": 0,

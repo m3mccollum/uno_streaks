@@ -9,11 +9,11 @@ multiplier or card count is ever hand-copied into JavaScript.
 
 Writes two files:
 
-    web/data/paytable.json   canonical, human-readable dump of everything
-    web/data/game-data.js    the same payload as a classic script that sets
-                             globalThis.UNO_DATA, so web/index.html runs by
-                             double-clicking it (a file:// page cannot fetch
-                             JSON or load ES modules)
+    data/paytable.json   canonical, human-readable dump of everything
+    data/game-data.js    the same payload as a classic script that sets
+                         globalThis.UNO_DATA, so index.html runs by
+                         double-clicking it (a file:// page cannot fetch
+                         JSON or load ES modules)
 
 Re-run after editing DECK_COMPOSITION, PAYTABLE, JACKPOT_SCORE, CARD_POINTS or
 DRAW_COUNTS. Never edit the generated files by hand.
@@ -37,7 +37,7 @@ from uno_sim import (
 #: "Hand size and the paytable are a matched pair" section of CLAUDE.md.
 HAND_SIZE = 5
 
-OUT_DIR = Path(__file__).parent / "web" / "data"
+OUT_DIR = Path(__file__).parent / "data"
 
 
 def build_payload() -> dict:
