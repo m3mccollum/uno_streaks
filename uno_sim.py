@@ -233,6 +233,36 @@ JACKPOT_SCORE = 25
 #: more common result than 19 or 20, because capping the score makes the top
 #: bucket absorb every round that would otherwise have scored higher -- so the
 #: jackpot multiplier does more damage to the RTP than its position suggests.
+# OLD:
+# PAYTABLE: Dict[int, float] = {
+#      0: 0,
+#      1: 0,
+#      2: 0,
+#      3: 0,
+#      4: 0.5,
+#      5: 2,   # anchored
+#      6: 2.25,
+#      7: 2.5,
+#      8: 2.75,
+#      9: 3,
+#     10: 3.25,
+#     11: 3.5,
+#     12: 3.75,
+#     13: 4,
+#     14: 4.25,
+#     15: 4.5,
+#     16: 4.75,
+#     17: 5,
+#     18: 5.25,
+#     19: 5.5,
+#     20: 5.75,
+#     21: 6.0,
+#     22: 7.0,
+#     23: 8.0,
+#     24: 10.0,
+#     25: 12.0,   # balancing tier
+# }
+
 PAYTABLE: Dict[int, float] = {
      0: 0,
      1: 0,
@@ -261,7 +291,6 @@ PAYTABLE: Dict[int, float] = {
     24: 10.0,
     25: 12.0,   # balancing tier
 }
-
 
 
 def payout(score: int) -> float:
@@ -909,7 +938,7 @@ def simulate(hands: int = 100,
 
 
 if __name__ == "__main__":
-    hands = 100000
+    hands = 200000
     size = 5
 
     if hands == 1:
