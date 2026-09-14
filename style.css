@@ -75,6 +75,11 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 250px;
   grid-template-areas: "table side" "hand side";
+  /* The sidebar spans both rows, so anything that makes it taller than the
+   * board -- the round log growing a line per play -- would otherwise have
+   * its excess height split between the two rows, sliding the hand down the
+   * page as you play. Letting row 2 absorb all of it pins the board in place. */
+  grid-template-rows: auto 1fr;
   gap: 18px;
   padding: 18px 22px;
   align-items: start;
@@ -84,7 +89,9 @@ main {
 .side { grid-area: side; }
 
 @media (max-width: 900px) {
-  main { grid-template-columns: 1fr; grid-template-areas: "table" "hand" "side"; }
+  /* Stacked: nothing spans rows any more, so every row sizes to its content. */
+  main { grid-template-columns: 1fr; grid-template-areas: "table" "hand" "side";
+         grid-template-rows: auto auto auto; }
 }
 
 .panel-label {
